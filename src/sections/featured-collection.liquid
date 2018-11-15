@@ -1,0 +1,88 @@
+
+
+{%- assign collection = collections[section.settings.collection] -%}
+
+     <img src="{{ section.settings.image.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+<div class="intro-collection">
+    
+    <h3> {{ section.settings.text-box }} </h3>
+    <p> {{ section.settings.body }} </p>
+    <a href="{{ section.settings.link }}" class="static--cta"> SHOP </a>
+    
+</div>
+<div class="container">
+
+{% for product in collection.products limit: 20 %}
+
+<div class="product-post">
+  <a href="{{ product.url | within: collection }}" class="product {{product.title}}">
+<div class="product-image">
+        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ featured.featured_image.alt | escape }}">
+
+        
+     {% for image in product.images %}
+            <img class="product-post--desktop" src="{{ image.src | img_url: 'master' }}" alt="{{ image.alt | escape }}">
+      {% endfor %}
+</div>
+    <h4>{{ product.title }}</h4>
+
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Featured collection",
+    "settings": [
+
+       {
+      "id": "text-box",
+      "type": "text",
+      "label": "Heading",
+      "default": "Title"
+    },
+    {
+      "id": "link",
+      "type": "url",
+      "label": "Button link"
+    },
+    {
+      "id": "body",
+      "type": "textarea",
+      "label": "body",
+      "default": "body"
+    },
+
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+       {
+      "id": "image",
+      "type": "image_picker",
+      "label": "image"
+    },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured collection",
+        "category": "Collection"
+      }
+    ]
+  }
+
+{% endschema %}

@@ -1,0 +1,110 @@
+  <aside class="right">
+      
+      <h2>News:</h2>
+      <ul>
+        
+        <li><a href="{% if section.settings.right-sidebar-text-1 %}http://{{ section.settings.right-sidebar-link-1 | escape }}{%endif%}" target="_blank"> {{ section.settings.right-sidebar-text-1 | escape }} </a></li>
+        <li><a href="{% if section.settings.right-sidebar-text-2 %}http://{{ section.settings.right-sidebar-link-2 | escape }}{%endif%}" target="_blank"> {{ section.settings.right-sidebar-text-2 | escape }} </a></li>
+        <li><a href="{% if section.settings.right-sidebar-text-3 %}http://{{ section.settings.right-sidebar-link-3 | escape }}{%endif%}" target="_blank"> {{ section.settings.right-sidebar-text-3 | escape }} </a></li>
+        <li><a href="{% if section.settings.right-sidebar-text-4 %}http://{{ section.settings.right-sidebar-link-4 | escape }}{%endif%}" target="_blank"> {{ section.settings.right-sidebar-text-4 | escape }} </a></li>
+        <li><a href="{% if section.settings.right-sidebar-text-5 %}http://{{ section.settings.right-sidebar-link-5 | escape }}{%endif%}" target="_blank"> {{ section.settings.right-sidebar-text-5 | escape }} </a></li>
+       
+      </ul>
+<img src="https://cdn.shopify.com/s/files/1/0014/8648/7629/files/FireCamping.gif?5962877522856445444">
+      <img src="https://cdn.shopify.com/s/files/1/0014/8648/7629/files/unnamed-4.gif?5962877522856445444">
+      <img src="https://cdn.shopify.com/s/files/1/0014/8648/7629/files/unnamed-26.gif?5962877522856445444">
+</aside>
+
+
+
+{% schema %}
+  {
+    "name": "RightBar",
+    "settings": [
+      
+      {
+        "type": "text",
+        "id": "right-sidebar-text-1",
+        "label": "Text 1",
+        "default": "Welcome!"
+      },
+
+
+      {
+        "type": "text",
+        "id": "right-sidebar-link-1",
+        "label": "Link 1",
+        "default": "camphigh.com"
+      },
+
+        {
+        "type": "text",
+        "id": "right-sidebar-text-2",
+        "label": "Heading",
+        "default": "Welcome!"
+      },
+
+       {
+        "type": "text",
+        "id": "right-sidebar-link-2",
+        "label": "Link 2",
+        "default": "camphigh.com"
+      },
+
+
+        {
+        "type": "text",
+        "id": "right-sidebar-text-3",
+        "label": "Heading",
+        "default": "Welcome!"
+      },
+
+       {
+        "type": "text",
+        "id": "right-sidebar-link-3",
+        "label": "Link 3",
+        "default": "camphigh.com"
+      },
+
+        {
+        "type": "text",
+        "id": "right-sidebar-text-4",
+        "label": "Heading",
+        "default": "Welcome!"
+      },
+
+       {
+        "type": "text",
+        "id": "right-sidebar-link-4",
+        "label": "Link 4",
+        "default": "camphigh.com"
+      },
+
+
+         {
+        "type": "text",
+        "id": "right-sidebar-text-5",
+        "label": "Heading",
+        "default": "Welcome!"
+      },
+
+       {
+        "type": "text",
+        "id": "right-sidebar-link-5",
+        "label": "Link 5",
+        "default": "camphigh.com"
+      }
+
+      
+
+
+      
+    ],
+    "presets": [
+      {
+        "name": "RightBar",
+        "category": "RightBar"
+      }
+    ]
+  }
+{% endschema %}

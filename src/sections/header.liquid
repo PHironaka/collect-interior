@@ -1,0 +1,154 @@
+<style>
+  {% if section.settings.logo != blank %}
+    .site-header__logo-image {
+      max-width: {{ section.settings.logo_max_width }}px;
+    }
+  {% endif %}
+</style>
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+  <header role="banner">
+    
+
+    
+     <nav role="navigation">
+      {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+                  <li class="account-login">
+                    <a href="/account">
+                  Account
+                    </a>
+                  </li>
+                {% endif %}
+                {% endif %}
+    <ul>
+      {% for link in linklists.mainmenu.links %}
+        {% if link.links != blank %}
+          <li>
+            <a href="{{ link.url }}" class="nav-links">{{ link.title | escape }}</a>
+            <ul>
+              {% for childlink in link.links %}
+                {% if childlink.links != blank %}
+                  <li>
+                    <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                    <ul>
+                      {% for grandchildlink in childlink.links %}
+                        <li>
+                          <a href=" {{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                {% else %}
+                  <li>
+                    <a href="{{ childlink.url }}">{{ childlink.title | escape }} </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title | escape }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+ 
+    </ul>
+
+
+  </nav>
+
+
+      <div class="interior-logo" itemscope itemtype="http://schema.org/Organization">
+        <a href="/" itemprop="url" > 
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67.21 17.46"><g id="Layer_2" data-name="Layer 2"><g id="Top_Nav" data-name="Top Nav"><path d="M0,0H1.11V11H0Z" style="fill:#231f20"/><path d="M16.82,1.07V0h6V1.07H20.42V11H19.3V1.07Z" style="fill:#231f20"/><path d="M26,0h6.32V1.09H27.11V4.53h5.17V5.6H27.11V9.93h5.17V11H26Z" style="fill:#231f20"/><path d="M35.81,0H38a12.85,12.85,0,0,1,2.52.16,3.06,3.06,0,0,1,1.16.53,2.54,2.54,0,0,1,.76,1,3,3,0,0,1,.28,1.29,2.7,2.7,0,0,1-1,2.22,4.16,4.16,0,0,1-2.82.74l4,5.13H41.51l-4-5.13h-.63V11H35.81Zm1.11,1.07V4.82h1.9a3.69,3.69,0,0,0,2.08-.44,1.61,1.61,0,0,0,.67-1.44,1.6,1.6,0,0,0-.66-1.43,3.71,3.71,0,0,0-2-.45Z" style="fill:#231f20"/><path d="M60.15,0h2.19a12.85,12.85,0,0,1,2.52.16A3.06,3.06,0,0,1,66,.69a2.54,2.54,0,0,1,.76,1,3,3,0,0,1,.28,1.29,2.7,2.7,0,0,1-1,2.22,4.16,4.16,0,0,1-2.82.74l4,5.13H65.84l-4-5.13h-.63V11H60.15Zm1.11,1.07V4.82h1.9a3.69,3.69,0,0,0,2.08-.44,1.61,1.61,0,0,0,.67-1.44,1.6,1.6,0,0,0-.66-1.43,3.71,3.71,0,0,0-2-.45Z" style="fill:#231f20"/><path d="M21.58,17.42v-1.8h0L22.82,17V15.61H23v1.8h0l-1.19-1.36v1.36Z" style="fill:#231f20"/><path d="M25.25,15.61h1v.18h-.85v.56h.85v.18h-.85v.71h.85v.18h-1Z" style="fill:#231f20"/><path d="M28.3,15.61h.19L28.85,17l.52-1.34h0L29.92,17l.37-1.34h.18L30,17.46h0l-.53-1.41-.54,1.41h0Z" style="fill:#231f20"/><path d="M34.91,15.61h.21l.46.74.45-.74h.21l-.57.94v.86H35.5v-.86Z" style="fill:#231f20"/><path d="M38.27,16.52A1,1,0,0,1,38.4,16a.91.91,0,0,1,.34-.35.94.94,0,0,1,.48-.13,1,1,0,0,1,.48.12A.91.91,0,0,1,40,16a1,1,0,0,1,0,1,.91.91,0,0,1-.35.35.94.94,0,0,1-.48.13,1,1,0,0,1-.48-.12A.91.91,0,0,1,38.4,17,.92.92,0,0,1,38.27,16.52Zm1.71,0a.77.77,0,0,0-.77-.77.72.72,0,0,0-.54.22.76.76,0,0,0-.22.55.76.76,0,1,0,1.52,0Z" style="fill:#231f20"/><path d="M42.35,15.61h.36a2.1,2.1,0,0,1,.41,0,.5.5,0,0,1,.19.09.42.42,0,0,1,.12.16.49.49,0,0,1,0,.21.44.44,0,0,1-.16.36.68.68,0,0,1-.46.12l.65.84h-.22l-.65-.84h-.1v.84h-.18Zm.18.18v.61h.31a.6.6,0,0,0,.34-.07.31.31,0,0,0,0-.47.61.61,0,0,0-.33-.07Z" style="fill:#231f20"/><path d="M45.67,15.61h.19v.68l.72-.68h.24l-.87.81.93,1h-.24l-.79-.84v.84h-.19Z" style="fill:#231f20"/><polygon points="6.34 11.03 5.18 11.03 5.18 2.83 6.34 4.51 6.34 11.03" style="fill:#231f20"/><polygon points="13.93 8.08 12.76 6.42 12.76 0.02 13.93 0.02 13.93 8.08" style="fill:#231f20"/><polygon points="14.02 11.05 12.68 11.05 5.13 0.07 6.56 0.07 14.02 11.05" style="fill:#231f20"/><rect id="I" x="44.66" y="4.94" width="7.06" height="1.06" style="fill:#dabf79"/><path d="M55.7,8.35a2.81,2.81,0,1,1,2.81-2.81A2.82,2.82,0,0,1,55.7,8.35Zm0-4.64a1.83,1.83,0,1,0,1.83,1.83A1.83,1.83,0,0,0,55.7,3.7Z" style="fill:#dabf79"/></g></g></svg>
+
+        </a>
+
+      </div>
+
+    <a href="/cart" class="cart">
+     {{ 'layout.cart.title' | t }}
+      ({{ cart.item_count }} )
+    </a>
+
+
+  <div class="modal-box mobile">
+        <button href="#" class="close " role="button" >
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+
+        </button>
+      <div class="menu">
+
+   <nav role="navigation">
+    <ul class="site-nav">
+
+
+
+      {% for link in linklists.campmain.links %}
+        {%- assign child_list_handle = link.title | handleize -%}
+        {% if menus[child_list_handle].links != blank %}
+          <li class="site-nav--has-submenu{% if link.active %} site-nav--active{% endif %} ">
+            <a href="{{ link.url }}" class="site-nav__link" name="{{ link.title }}">
+              {{ link.title }}
+            </a>
+            
+          </li>
+          <ul class="site-nav__submenu">
+
+              {% for childlink in menus[child_list_handle].links %}
+                <li {% if childlink.active %}class="site-nav--active"{% endif %}>
+                  <a href="{{ childlink.url }}" class="site-nav__link" name="{{ link.title }}">{{ childlink.title | escape }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+        {% else %}
+          <li class="subNav-item {% if link.active %}site-nav--active {% endif %}">
+            <a href="{{ link.url }}" class="site-nav__link" name="{{ link.title }}">{{ link.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    
+    </ul>
+  </nav>
+      </div>
+      <div class="overlay"></div>
+   </div>  
+
+<div class="mobile-nav--button">
+        <button  class="mobile-menu">
+<svg width="31px" height="19px" viewBox="0 0 31 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="align-justify-(1)" transform="translate(1.000000, 1.000000)" stroke="#000000" stroke-width="2"><path d="M29,8 L0,8" id="Shape"></path><path d="M29,0 L0,0" id="Shape"></path><path d="M29,17 L0,17" id="Shape"></path></g></g></svg>
+        </button>
+
+
+
+
+
+</div>  
+  </header>
+
+ 
+</div>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image"
+      },
+      {
+        "type": "range",
+        "id": "logo_max_width",
+        "min": 50,
+        "max": 450,
+        "step": 10,
+        "unit": "px",
+        "label": "Custom logo width",
+        "default": 250
+      }
+    ]
+  }
+{% endschema %}
