@@ -81,6 +81,8 @@ $(document).ready(function() {
 });
 
 
+$(".site-nav--has-submenu").hover(function(){$(this).find(".site-nav__submenu").fadeIn(500)},function(){$(this).find(".site-nav__submenu").fadeOut(100)})
+
 
 
 

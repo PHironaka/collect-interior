@@ -120,6 +120,8 @@
 	}
 .product-post {
 	margin-bottom: 2em;
+
+
  h4 {
 	margin-bottom:10px;
 	}
@@ -141,7 +143,7 @@
 	}
 }
 
-	.product-image {
+	.product-post {
 	display:grid;
 	    grid-template-columns: 1fr 1fr 1fr ;
 	    grid-gap:1em;
@@ -159,37 +161,50 @@
 #product-post {
 	display:grid;
 	    grid-template-columns:  2fr 1fr;
-	    grid-gap:1em;
+	    grid-gap:2em;
+	    padding:0 2em;
       @media screen and (max-width: 800px) {
   grid-template-columns:  1fr;
    
 }
+
+	img {
+	margin:1em 0;
+	}
 }
 
 
 .product-post--copy {
-	margin-top:4em;
+	margin-top:0em;
+	position:sticky;
+	top:0;
+	max-height: 600px;
 	  @media screen and (max-width: 800px) {
 	margin-top:1em;
   
    
 }
 
-	p {
+h2 {
+	font-size:2em;
+	   
+}
+
+
+
+	p, li {
 	font-size:.8em;
-	font-weight:bold;
+	text-transform:uppercase;
+	line-height:1.5;
 	}
 }
 
-.rte p {
-	font-size:.8em;
-	font-weight:bold;
-	line-height:1.4;
-}
+
 
 .product-post--price {
 	font-weight:bold;
 	margin-bottom:1em;
+	 
 }
 
 button {
@@ -275,3 +290,112 @@ select {
 	padding:0;
 	}
 }
+
+.related-headline {
+	font-size:1.5em;
+	text-transform:uppercase;
+	text-align:center;
+}
+.related-products-list {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap:2em;	
+	    padding: 2em;
+    max-width: 1000px;
+
+     @media screen and (max-width: 800px) {
+  display:block;
+   
+}
+}
+
+
+
+.btn.product-page {
+	border: 1px solid;
+	padding:7px 1.3em;
+	margin-top:4em;
+}
+
+.static-page {
+	background:black;
+	color:#e1d48a;
+	text-align:center;
+	padding:0 0 4em 0;
+	.container {
+	max-width:700px;
+	}
+
+	p {
+	padding:1em;
+	line-height:1.5;
+	}
+
+
+	h2 {
+	font-size:5em;
+	margin:40px 0 0;
+	}
+}
+
+.product-collection p {
+	max-width:550px;
+	margin: 0 auto;
+	line-height:1.5;
+}
+
+.radio {
+	 grid-template-columns: repeat(3, 1fr);
+	 display: grid;
+
+    	 @media screen and (max-width: 800px) {
+      display: block;
+  margin: 0em;
+    width: 100%;
+
+
+
+}
+
+  label {
+    cursor: pointer;
+    color: #9f9f9f;
+    user-select: none;
+    border: 1px solid #000;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    padding: 1em;
+    height: 4em;
+    width: 4em;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    margin: 1em;
+    box-shadow: 0px 0px 5px #e5e5e5;
+    transition: all 120ms ease-in-out;
+      
+      p {
+        font-size: 12px;
+        margin: 0;
+      }
+      
+      &:before {
+        font-size: 1em;
+        display: block;
+        line-height: 1.5;
+      }
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+
+ input[type="radio"]:checked + label {
+       color: #fff;
+       border: 1px solid black;
+       background: black;
+    }
+
+}
+

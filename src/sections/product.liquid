@@ -19,7 +19,7 @@
   </div>
 <div class="product-post--copy">
 
-  <h4>{{ product.title }}</h4>
+  <h2>{{ product.title }}</h2>
 
       <div class="product-post--price" data-price-wrapper>
           {{ current_variant.price | money }}
@@ -34,10 +34,17 @@
         {% endif %}
       </div>
 
-  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+  
+
+  <div class="rte">
+    {{ product.description }}
+  </div>
+
+  <div class="product-add--cart" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
     <meta itemprop="priceCurrency" content="{{ shop.currency }}">
     <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
     <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+ {% if product.available %}
 
     <form action="/cart/add" method="post" enctype="multipart/form-data">
       {% unless product.has_only_default_variant %}
@@ -63,6 +70,27 @@
         {% endfor %}
       {% endunless %}
 
+
+      {% comment %}
+      {% unless product.has_only_default_variant %}
+
+        {% for option in product.options_with_values %}
+    <div>  
+      {% for value in option.values %}
+        <input 
+        type="radio" 
+        name="{{option.name}}" 
+        value="{{ value | escape }}"
+        id="{{option.name | handleize}}-{{value | escape | handleize}}">
+        <label for="{{option.name | handleize}}-{{value | escape | handleize}}" class="{{option.name | downcase}}">
+          {{value}}
+        </label>
+      {% endfor %}
+    </div>
+  {% endfor %}
+{% endunless %}
+      {% endcomment %}
+
       <select name="id" class="no-js" data-product-select>
         {% for variant in product.variants %}
           <option
@@ -80,19 +108,21 @@
         name="add"
         data-add-to-cart
         {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-        <img src="https://cdn.shopify.com/s/files/1/0014/8648/7629/files/atc.png?14489363389593644430" />
+       ADD TO BAG
           
       </button>
     </form>
-
+{% endif  %}
   </div>
 
-  <div class="rte">
-    {{ product.description }}
   </div>
   </div>
   </div>
-  </div>
+
+  <h3 class=related-headline> Related Products </h3>
+
+{% include 'related-products' %}
+
 
 {% schema %}
   {

@@ -22,36 +22,41 @@
                 {% endif %}
     <ul>
       {% for link in linklists.mainmenu.links %}
-        {% if link.links != blank %}
-          <li>
-            <a href="{{ link.url }}" class="nav-links">{{ link.title | escape }}</a>
-            <ul>
-              {% for childlink in link.links %}
-                {% if childlink.links != blank %}
-                  <li>
-                    <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-                    <ul>
-                      {% for grandchildlink in childlink.links %}
-                        <li>
-                          <a href=" {{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  </li>
-                {% else %}
-                  <li>
-                    <a href="{{ childlink.url }}">{{ childlink.title | escape }} </a>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
+    {% assign child_list_handle = link.title | handle %}
+    {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+    <li class="site-nav--has-submenu{% if link.active %} site-nav--active{% endif %}">
+      {{ link.title | link_to: link.url }}
+       <ul class="site-nav__submenu">
+       <div class="container">
+
+        {% for child_link in linklists[child_list_handle].links %}
+        {% assign grand_child_list_handle = child_link.title | handle %}
+        {% if linklists[grand_child_list_handle] and linklists[grand_child_list_handle].links.size > 0 %}
+         <li {% if childlink.active %}class="site-nav--active"{% endif %}>
+          {{ child_link.title | link_to: child_link.url }}
+          <ul class="submenu-sub">
+            {% for grand_child_link in linklists[grand_child_list_handle].links %}
+            <li>
+              {{ grand_child_link.title | link_to: grand_child_link.url }}
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
         {% else %}
-          <li>
-            <a href="{{ link.url }}">{{ link.title | escape }}</a>
-          </li>
+        <li>
+          {{ child_link.title | link_to: child_link.url }}
+        </li>
         {% endif %}
-      {% endfor %}
+        {% endfor %}    
+        </div>    
+      </ul>
+    </li>
+    {% else %}
+    <li>
+      {{ link.title | link_to: link.url }}
+    </li>
+    {% endif %}
+    {% endfor %}
  
     </ul>
 
@@ -68,8 +73,8 @@
       </div>
 
     <a href="/cart" class="cart">
-     {{ 'layout.cart.title' | t }}
-      ({{ cart.item_count }} )
+     CART
+      ({{ cart.item_count }})
     </a>
 
 
@@ -117,7 +122,7 @@
 
 <div class="mobile-nav--button">
         <button  class="mobile-menu">
-<svg width="31px" height="19px" viewBox="0 0 31 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="align-justify-(1)" transform="translate(1.000000, 1.000000)" stroke="#000000" stroke-width="2"><path d="M29,8 L0,8" id="Shape"></path><path d="M29,0 L0,0" id="Shape"></path><path d="M29,17 L0,17" id="Shape"></path></g></g></svg>
+<svg width="31px" height="19px" viewBox="0 0 31 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="align-justify-(1)" transform="translate(1.000000, 1.000000)" stroke="#000000" stroke-width="1"><path d="M29,8 L0,8" id="Shape"></path><path d="M29,0 L0,0" id="Shape"></path><path d="M29,17 L0,17" id="Shape"></path></g></g></svg>
         </button>
 
 
