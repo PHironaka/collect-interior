@@ -68,7 +68,7 @@ display:none;
 	padding:0;
     margin:0;
 	display:grid;
-	grid-template-columns:1fr 1fr ;
+	grid-template-columns:80px 1fr ;
 	    justify-items: left;
 	}
 
@@ -95,7 +95,7 @@ display:none;
 @media screen and (max-width: 800px) {
     display: block;
     position: absolute;
-    left: 10px;
+    left: 2px;
     top: 26px;
 }
 	
@@ -107,15 +107,22 @@ display:none;
     margin-bottom:2em;
 
     h1 {
-    font-size:5.5em;
+    font-size:5em;
         margin: 20px;
+
+        @media screen and (max-width: 800px) {
+    font-size:2em;
+        margin: 20px 10px;
+   
+}
+
     }
 }
 
 
 .modal-box.mobile.active {
     left: 0;
-
+    max-width:400px;
     border: 1px solid;
 }
 
@@ -126,33 +133,34 @@ display:none;
     -o-transition: 0.1s;
     transition: 0.1s;
     transition: all 0.1s ease-in-out;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
     position: fixed;
     z-index: 9999;
     top: 0;
         left: -100%;
-    background:#658d7f;
+    background:#000;
     height: 100%;
-    width: 100%;
-overflow-y:scroll;
+    max-width: 400px;
+
 
 button {
     background:transparent;
     border:none;
 
      position: absolute;
-    right: 30px;
-    top: 22px;
+    left: 10px;
+    top: 10px;
+    width:20px;
 }
 
 
 
 
     .menu {
-        width: 100%;
+        max-width: 400px;
     height: 100%;
     padding: 31px;
 
@@ -162,13 +170,13 @@ button {
     display:block;
     li {
     border-right:none;
-
+    text-align:center;
     }
     }
     }
 
     li {
-    margin: 1em 0;
+    margin: 2em 0;
         display: block;
 
 
@@ -177,6 +185,8 @@ button {
     padding: 10px 0;
     position: relative;
    transition: .3s; 
+    color:white;
+
 
 &:after {
     position: absolute;
@@ -186,7 +196,7 @@ button {
     left: 50%;
     bottom: 0;
     height: 1px;
-    background: #333;
+    background: #fff;
   }
   &:nth-of-type(2):after {
     left: 0;
@@ -231,13 +241,19 @@ button {
 }
 
 .site-nav__submenu {
+    display: none;
+    
+}
+
+.site-nav__submenu.active {
     position: absolute;
     top: 55px;
     margin: 0;
     left: 0;
     padding: 20px 0;
-    display: none;
-    width: 100%;
+    max-width: 400px;
+
+    display:block;
     background-color: #fff;
     justify-content: center;
     overflow-x: hidden;
@@ -247,6 +263,8 @@ button {
 
     .container {
         grid-template-columns: 1fr 1fr 1fr;
+            max-width: 700px;
+
     }
 
     li {
@@ -264,7 +282,7 @@ button {
     left: 0;
     padding: 20px 0;
     display: none;
-    width: 100%;
+    max-width: 350px;
     background-color: #fff;
     justify-content: center;
     overflow-x: hidden;
@@ -301,3 +319,86 @@ button {
     font-size: .7em;
     }
 }
+
+.search-page {
+    text-align:center;
+}
+
+.search-results--listed {
+    text-transform:uppercase;
+    line-height:2;
+}
+.template-search ul {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.search {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    cursor:pointer;
+
+
+    .field.expanded {
+    min-width:160px;
+        font-size: 10px;
+      -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+    transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    }
+
+    form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    input[type=submit] {
+        vertical-align: middle;
+        border: none;
+        outline: none;
+        background: none;
+        transition: opacity 100ms ease-in-out;
+        &:hover {
+            opacity: .5;
+        }
+    }
+    input[type=text] {
+        width: 14em;
+        padding: 0 0 7px;
+        margin-left:1em;
+            font-size: 1.1em;
+                text-transform: uppercase;
+        border: none;
+        border-bottom: 1px solid #999;
+        background: inherit;
+        transition: border-color 100ms ease-in-out;
+        
+        &:focus {
+            border-bottom-color: inherit;
+            outline: none;
+        }
+    }
+}
+
+.search-slide {
+    width: 0;
+    height: 2.5em;
+    overflow: hidden;
+}
+
+.search-close {
+    text-align: center;
+    cursor: pointer;
+    transition: opacity 100ms ease-in-out;
+    &:hover {
+        opacity: .5;
+    }
+}
+

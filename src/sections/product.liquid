@@ -1,5 +1,8 @@
-<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
 
+
+
+<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
+<div class="container product">
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 
@@ -8,7 +11,10 @@
   <meta itemprop="brand" content="{{ product.vendor }}">
   <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
   <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+
 <div id="product-post">
+
+  
 <div class="product-post--images">
 
   {% if product.images.size > 1 %}
@@ -17,9 +23,16 @@
       {% endfor %}
   {% endif %}
   </div>
+
+
+
 <div class="product-post--copy">
 
+{% assign on_sale = false %}
+
+  
   <h2>{{ product.title }}</h2>
+
 
       <div class="product-post--price" data-price-wrapper>
           {{ current_variant.price | money }}
@@ -34,25 +47,40 @@
         {% endif %}
       </div>
 
-  
 
-  <div class="rte">
+      <div class="product-description">
     {{ product.description }}
   </div>
 
-  <div class="product-add--cart" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
     <meta itemprop="priceCurrency" content="{{ shop.currency }}">
     <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
     <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
  {% if product.available %}
+    <form class="sidebar fixed-cart"action="/cart/add" method="post" enctype="multipart/form-data">
 
-    <form action="/cart/add" method="post" enctype="multipart/form-data">
       {% unless product.has_only_default_variant %}
         {% for option in product.options_with_values %}
-          <div class="selector-wrapper js {{ option.name }}">
+  <div class="sidebar__innner">
+
+     
+
+        {% if product.compare_at_price_max > product.price %}
+          <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+          <s data-compare-price>
+            {% if current_variant.compare_at_price > current_variant.price %}
+              {{ current_variant.compare_at_price | money }}
+            {% endif %}
+          </s>
+        {% endif %}
+      </div>
+          <div class="selector-wrapper js">
             <label for="SingleOptionSelector-{{ forloop.index0 }}">
               {{ option.name }}
             </label>
+
+
+
 
             <select
               id="SingleOptionSelector-{{ forloop.index0 }}"
@@ -71,26 +99,6 @@
       {% endunless %}
 
 
-      {% comment %}
-      {% unless product.has_only_default_variant %}
-
-        {% for option in product.options_with_values %}
-    <div>  
-      {% for value in option.values %}
-        <input 
-        type="radio" 
-        name="{{option.name}}" 
-        value="{{ value | escape }}"
-        id="{{option.name | handleize}}-{{value | escape | handleize}}">
-        <label for="{{option.name | handleize}}-{{value | escape | handleize}}" class="{{option.name | downcase}}">
-          {{value}}
-        </label>
-      {% endfor %}
-    </div>
-  {% endfor %}
-{% endunless %}
-      {% endcomment %}
-
       <select name="id" class="no-js" data-product-select>
         {% for variant in product.variants %}
           <option
@@ -102,27 +110,49 @@
         {% endfor %}
       </select>
 
-
-      <button class="btn product-page"
+      <button class="btn product-page {% if current_variant.available %}add-to-cart{% else %}sold-out{% endif %}"
         type="submit"
         name="add"
         data-add-to-cart
         {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-       ADD TO BAG
-          
+          <span data-add-to-cart-text>
+            {% if current_variant.available %}
+              {{ 'products.product.add_to_cart' | t }}
+            {% else %}
+              {{ 'products.product.sold_out' | t }}
+            {% endif %}
+          </span>
       </button>
+
     </form>
-{% endif  %}
-  </div>
 
-  </div>
-  </div>
-  </div>
+    {%else %} <p class="sold"> sold out </p> {%endif%}
 
-  <h3 class=related-headline> Related Products </h3>
+ </div>
+    </div>
+  {% comment %}
+  {% if section.settings.show_share_buttons %}
+    {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+  {% endif %}
+  {% endcomment %}
+
+
+  {% unless product == empty %}
+    <script type="application/json" data-product-json>
+      {{ product | json }}
+    </script>
+  {% endunless %}
+   <h3 class="related-headline"> Related Products </h3>
+
 
 {% include 'related-products' %}
 
+  
+</div>
+  
+
+</div>
+</div>
 
 {% schema %}
   {

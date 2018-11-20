@@ -24,8 +24,8 @@
 	}
 
 	p {
-	line-height:1.5;
-	max-width:400px;
+    max-width: 550px;
+	line-height:2;
 	margin:3em auto;
 	}
 
@@ -100,6 +100,7 @@
 	color:black;
 	font-weight:bold;
     font-size: .8em;
+
 	
 	}
 
@@ -109,10 +110,20 @@
 	margin:10px 0 0;
 	font-size:.8em;
 	}
-	a{
+
+	a {
 	text-decoration:none;
 	color:black;
-	font-weight:bold;
+	}
+	input.static--cta, a.static--cta, .add-to-cart{
+	
+	 -webkit-transition: all .2s;
+    text-transform:uppercase;
+    transition: all .2s;
+    &:hover {
+    background:black;
+    color:white;
+    }
 	p {
 	margin:0;
 	}
@@ -167,7 +178,10 @@
   grid-template-columns:  1fr;
    
 }
-
+	
+	span {
+	text-transform:uppercase;
+	}
 	img {
 	margin:1em 0;
 	}
@@ -242,10 +256,33 @@ button {
 	margin-top:1em;
 }
 
+.cart-title {
+	    border-bottom: 2px solid black;
+    padding: 1em 0;
+    margin-bottom:2em;
+    display: block;
+}
+
+.cart-products--title {
+	display:grid;
+	grid-template-columns:1fr 2fr;
+	grid-gap:2em;
+
+	h3 {
+	margin:0;
+	}
+	p {
+	font-size:.8em;
+	}
+}
+
 .cart-products, .cart-titles {
 	display:grid;
-	grid-template-columns:1fr 1fr 100px 1fr;
+	grid-template-columns:500px 1fr 1fr 1fr;
 	grid-gap:2em;
+	text-transform:uppercase;
+	margin:1em 0;
+	text-align:left;
 	      @media screen and (max-width: 800px) {
   grid-template-columns:  1fr;
    
@@ -256,19 +293,13 @@ button {
 	display:none;
 }
 
-form {
-    font-family: lucida grande;
-    font-weight: bold;
-    font-size: .89em;
-}
+
 
 select {
 	background-color:white !important;
 }
 
-.template-search p {
-	font-weight:bold;
-}
+
 .template-search ul  {
 	list-style:none;
 	padding:0;
@@ -314,7 +345,16 @@ select {
 .btn.product-page {
 	border: 1px solid;
 	padding:7px 1.3em;
-	margin-top:4em;
+	margin-top:2em;
+}
+
+.static--cta {
+	    padding: 1em;
+    border: 1px solid;
+    width: 125px;
+    grid-column:1/-1;
+    margin: 0 auto 4em;
+    text-align:center;
 }
 
 .static-page {
@@ -324,17 +364,21 @@ select {
 	padding:0 0 4em 0;
 	.container {
 	max-width:700px;
+	grid-gap:0;
+	grid-row-gap:0;
 	}
 
 	p {
-	padding:1em;
-	line-height:1.5;
+	padding:0 1em;
+	line-height:2;
+	margin:0;
 	}
 
 
 	h2 {
-	font-size:5em;
-	margin:40px 0 0;
+	font-size: 10em;
+    line-height: 152px;
+    margin: 40px 0 68px;
 	}
 }
 
@@ -398,4 +442,135 @@ select {
     }
 
 }
+
+
+.collect-key {
+	    max-width: 350px;
+    position: relative;
+    float: right;
+    margin-top: -4.7em;
+    margin-right: 5em;
+
+      @media screen and (max-width: 800px) {
+	    max-width: 220px;
+
+    margin-top: -3.1em;
+    margin-right: 2em;
+   
+}
+}
+
+.index-photos {
+ display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+grid-template-areas:
+ "hd hd hd hd hd hd   main main main main main main"
+ "nt nt nt nt nt nt  rt rt rt rt rt rt "
+ "bw bw bw  bw   bw bw   bw  bw   bw   bw   bw      bw"
+ "fd fd fd fd ut ut ut ut ls ls ls ls" 
+ "tt tt tt tt tt tt  ll ll ll ll ll ll "
+ "nk nk nk  nk   nk nk   nk  nk   nk   nk   nk      nk";
+
+ @media screen and (max-width: 800px) {
+	  display:block;
+   
+}
+
+}
+
+.photo-1 {
+	 grid-area: hd;
+	 padding: 0 3em;
+	 margin-bottom:4em;
+}
+
+.photo-2 {
+	 grid-area: main;
+	     padding: 3em;
+    width: 100%;
+}
+
+.photo-3 {
+	 grid-area: nt;
+	     padding: 0 3em;
+	     margin:3em 0;
+	
+}
+
+.photo-4 {
+	    grid-area: rt;
+    padding: 3em 3em;
+    width: 100%;
+    margin-top: 4em;
+	
+}
+
+.photo-5 {
+	 grid-area: bw;
+	margin-top:4em;
+}
+
+
+.photo-6 {
+	 grid-area: fd;
+	padding:2em 1em;
+}
+
+
+.photo-7 {
+	padding:2em 1em;
+	 grid-area: ut;
+}
+
+
+.photo-8 {
+	 grid-area: ls;
+	padding:2em 1em;
+}
+
+
+.photo-9 {
+	 grid-area: tt;
+	     padding: 0 3em;
+    align-self: center;
+}
+
+.photo-10 {
+	 grid-area: ll;
+	padding:2em 3em;
+}
+
+.photo-11 {
+	 grid-area: nk;
+	padding:2em 0;
+}
+
+
+.responsive-table {
+	width:100%;
+}
+
+.totals {
+	text-align:right;
+	 @media screen and (max-width: 800px) {
+	text-align:left;
+   
+}
+}
+
+.cart-empty {
+	text-align:center;
+
+	h1 {
+	font-weight:normal;
+	}
+
+	a {
+	border-bottom:1px solid;
+	padding:3px 0;
+	}
+}
+
+
 

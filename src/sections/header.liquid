@@ -33,7 +33,9 @@
         {% assign grand_child_list_handle = child_link.title | handle %}
         {% if linklists[grand_child_list_handle] and linklists[grand_child_list_handle].links.size > 0 %}
          <li {% if childlink.active %}class="site-nav--active"{% endif %}>
+
           {{ child_link.title | link_to: child_link.url }}
+
           <ul class="submenu-sub">
             {% for grand_child_link in linklists[grand_child_list_handle].links %}
             <li>
@@ -45,6 +47,8 @@
         {% else %}
         <li>
           {{ child_link.title | link_to: child_link.url }}
+          {% assign collection = child_link.object %}
+{% comment %} {% if collection.image %}<img src="{{ collection.image | img_url: 'master' }}" />{% endif %} {% endcomment %}
         </li>
         {% endif %}
         {% endfor %}    
@@ -57,7 +61,18 @@
     </li>
     {% endif %}
     {% endfor %}
- 
+
+
+    <li class="search" >
+   <form action="/search" method="get" class="search-form" role="search">
+
+   <div >Search</div>
+   <div  class="field" style="overflow:inherit !important;" >
+  <input name="q" type="text" placeholder="type here & press enter" />
+
+      </div>
+      </form>
+    </li>
     </ul>
 
 
@@ -80,7 +95,7 @@
 
   <div class="modal-box mobile">
         <button href="#" class="close " role="button" >
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 
         </button>
       <div class="menu">
@@ -90,15 +105,10 @@
 
 
 
-      {% for link in linklists.campmain.links %}
+      {% for link in linklists.mainmenu.links %}
         {%- assign child_list_handle = link.title | handleize -%}
         {% if menus[child_list_handle].links != blank %}
-          <li class="site-nav--has-submenu{% if link.active %} site-nav--active{% endif %} ">
-            <a href="{{ link.url }}" class="site-nav__link" name="{{ link.title }}">
-              {{ link.title }}
-            </a>
-            
-          </li>
+         
           <ul class="site-nav__submenu">
 
               {% for childlink in menus[child_list_handle].links %}

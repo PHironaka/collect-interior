@@ -3,6 +3,7 @@
 {%- assign collection = collections[section.settings.collection] -%}
 
      <img src="{{ section.settings.image.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+     <svg class="collect-key" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 404.3 164.19"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect id="I" y="64.71" width="205.88" height="30.88" style="fill:#dabf79"/><path d="M322.21,164.19a82.1,82.1,0,1,1,82.1-82.1A82.19,82.19,0,0,1,322.21,164.19Zm0-135.5a53.4,53.4,0,1,0,53.4,53.4A53.46,53.46,0,0,0,322.21,28.69Z" style="fill:#dabf79"/></g></g></svg>
 <div class="intro-collection">
     
     <h3> {{ section.settings.text-box }} </h3>
@@ -10,7 +11,24 @@
     <a href="{{ section.settings.link }}" class="static--cta"> SHOP </a>
     
 </div>
-<div class="container product-post">
+<div class="index-photos">
+
+
+     <img class="photo-1" src="{{ section.settings.image1.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+     <img class="photo-2" src="{{ section.settings.image2.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+     <img class="photo-3" src="{{ section.settings.image3.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+     <img class="photo-4" src="{{ section.settings.image4.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+     <img class="photo-5" src="{{ section.settings.image5.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+     <img class="photo-6" src="{{ section.settings.image6.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+      <img class="photo-7" src="{{ section.settings.image7.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+       <img class="photo-8" src="{{ section.settings.image8.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+        <img class="photo-9" src="{{ section.settings.image9.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+        <img class="photo-10" src="{{ section.settings.image10.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+        <img class="photo-11" src="{{ section.settings.image11.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" />
+    <a href="{{ section.settings.link }}" class="static--cta"> SHOP </a>
+
+
+{% comment %}
 
 {% for product in collection.products limit: 20 %}
 
@@ -28,6 +46,7 @@
 </div>
 
 {% endfor %}
+{% endcomment %}
 
 </div>
 
@@ -67,6 +86,79 @@
       "type": "image_picker",
       "label": "image"
     },
+
+    {
+      "id": "image1",
+      "type": "image_picker",
+      "label": "image1"
+    },
+
+
+    {
+      "id": "image2",
+      "type": "image_picker",
+      "label": "image2"
+    },
+
+
+    {
+      "id": "image3",
+      "type": "image_picker",
+      "label": "image3"
+    },
+
+
+    {
+      "id": "image4",
+      "type": "image_picker",
+      "label": "image4"
+    },
+
+
+    {
+      "id": "image5",
+      "type": "image_picker",
+      "label": "image5"
+    },
+
+
+    {
+      "id": "image6",
+      "type": "image_picker",
+      "label": "image6"
+    },
+
+     {
+      "id": "image7",
+      "type": "image_picker",
+      "label": "image7"
+    },
+
+     {
+      "id": "image8",
+      "type": "image_picker",
+      "label": "image8"
+    },
+
+     {
+      "id": "image9",
+      "type": "image_picker",
+      "label": "image9"
+    },
+
+     {
+      "id": "image10",
+      "type": "image_picker",
+      "label": "image10"
+    },
+
+     {
+      "id": "image11",
+      "type": "image_picker",
+      "label": "image11"
+    },
+
+
       {
         "id": "collection",
         "type": "collection",

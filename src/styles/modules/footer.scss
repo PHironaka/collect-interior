@@ -62,11 +62,13 @@ footer {
     .submit-button input {
     background:black;
     color:White;
+        border: 0px solid;
+    height: 31px;
     }
 
     #mc_embed_signup_scroll {
      display: grid;
-         grid-template-columns: 1fr 86px;
+         grid-template-columns: 1fr 80px;
              @media screen and (max-width: 800px) {
   
    display:block;
@@ -86,4 +88,18 @@ footer {
 
     }
     }
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: black;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: black;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: black;
 }
