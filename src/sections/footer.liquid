@@ -1,41 +1,43 @@
+<div {% if page.title == 'CONTACT' %}style="background-color:black; color:white;"{% elsif page.title == 'Wear Who You Are' %}style="background-color:black; color:white;" {% endif %}>
 <ul class="social">
 
 <li>
-<a href="https://www.facebook.com/CollectInterior/" target="_blank">Facebook</a>
+<a href="https://www.facebook.com/CollectInterior/" target="_blank" {% if page.title == 'CONTACT' %}style="color:white;"{% elsif page.title == 'Wear Who You Are' %}style="color:white;" {% endif %}>Facebook</a>
 </li>
 
 <li>
-<a href="https://www.instagram.com/collectinterior/" target="_blank">Instagram</a>
+<a href="https://www.instagram.com/collectinterior/" target="_blank" {% if page.title == 'CONTACT' %}style="color:white;"{% elsif page.title == 'Wear Who You Are' %}style="color:white;" {% endif %}>Instagram</a>
 </li>
 
 <li>
-<a href="http://astronautmonastery.com" target="_blank">Pinterest</a>
+<a href="https://www.pinterest.com/shop7708" target="_blank" {% if page.title == 'CONTACT' %}style="color:white;"{% elsif page.title == 'Wear Who You Are' %}style="color:white;" {% endif %}>Pinterest</a>
 </li>
 
 </ul>
-<footer>
+<footer  >
 
   {%- assign footer_linklist = section.settings.footer_linklist -%}
   {% if linklists[footer_linklist].links.size > 0 %}
     <ul>
-      <li>COPYRIGHT INTERIOR {{ 'now' | date: "%Y" }}</li>
+      <li {% if page.title == 'CONTACT' %}style="color:white;"{% elsif page.title == 'Wear Who You Are' %}style="color:white;" {% endif %}>COPYRIGHT INTERIOR {{ 'now' | date: "%Y" }}</li>
       {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        <li><a href="{{ link.url }}" {% if page.title == 'CONTACT' %}style="color:white;"{% elsif page.title == 'Wear Who You Are' %}style="color:white;" {% endif %}>{{ link.title }}</a></li>
       {% endfor %}
     </ul>
   {% endif %}
 
-  <form action="https://thechinatownmarket.us14.list-manage.com/subscribe/post?u=7641b08f28511416c16beebae&amp;id=31712a1353" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<form action="https://collectinterior.us16.list-manage.com/subscribe/post?u=f439509fc5f71ea75c2afcec9&amp;id=5c943bc2e9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
   
-  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="your email here" required>
+  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="your email here" required {% if page.title == 'CONTACT' %}style="background-color:black; color:white;"{% elsif page.title == 'Wear Who You Are' %}style="background-color:black; color:white;" {% endif %}>
     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     
-    <div class="submit-button"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    <div class="submit-button"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" {% if page.title == 'CONTACT' %}style="background-color:white; color:black;"{% elsif page.title == 'Wear Who You Are' %}style="background-color:white; color:black;" {% endif %}></div>
     </div>
 </form>
 
 </footer>
+</div>
 
 {% schema %}
   {

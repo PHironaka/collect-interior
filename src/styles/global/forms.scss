@@ -35,8 +35,10 @@ select {
     position: right 10px center;
     color: transparent;
   }
-  padding: 2px 28px;
-  margin: 7px;
+  padding: 8px 30px 0 0;
+  margin: 7px 0;
+  border:none;
+  outline:none;
   text-indent: 0.01px;
   text-overflow: '';
   cursor: pointer;
@@ -62,3 +64,17 @@ textarea {
     color: $color-error;
   }
 }
+
+.collection-intro form {
+      max-width: 400px;
+    margin: 3em auto;
+
+    .submit-button {
+    display:grid;
+    }
+   #mc-embedded-subscribe {
+      height:40px !important;
+
+    }
+}
+

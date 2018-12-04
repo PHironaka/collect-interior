@@ -2,6 +2,7 @@
     list-style:none;
     padding: 0 2em;
    display:grid;
+   margin:0;
     grid-template-columns:110px 110px 110px;
     @media screen and (max-width: 800px) {
   
@@ -19,9 +20,10 @@
 footer {
 	display:grid;
 	grid-template-columns:2fr 1fr;
-	margin: 1em 0;
+	margin:1em 0 0;
+
     font-size:.7em;
-	padding: 1em 2em;
+	padding: 1.5em 2em 2.5em;
 	border-top:1px solid;
 	ul {
     padding: 0;
@@ -49,7 +51,10 @@ footer {
     }
 
 
-    #mc-embedded-subscribe-form {
+   
+}
+
+ #mc-embedded-subscribe-form {
     justify-self: right;
     font-family: LabGrotesque-Regular;
     font-size:.8em;
@@ -83,12 +88,17 @@ footer {
          #mce-EMAIL {
         min-width: 172px;
 
+         @media screen and (max-width: 800px) {
+  
+        min-width: 100%;
+  
+}
+
          }
 
 
     }
     }
-}
 
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

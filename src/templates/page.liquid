@@ -1,5 +1,11 @@
 <div class="static-page">
-<img src="//cdn.shopify.com/s/files/1/2338/1801/files/ELLE0210.jpg?v=1530828432" alt="">
+{% if page.title == 'CONTACT' %}
+<img src="https://cdn.shopify.com/s/files/1/2338/1801/files/ELLE0355.jpg?4097806221072643491" alt="">
+{% else %}
+<img src="https://cdn.shopify.com/s/files/1/2338/1801/files/ELLE0336.jpg?4097806221072643491" alt="">
+
+{% endif %}
+
 <h2> {{ page.title }} </h2>
 
 <div class="container">
